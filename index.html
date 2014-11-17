@@ -36,27 +36,138 @@
 # Fun with regex
 
 * Understanding regex in 2 minutes
+* Some basics
 * Finding primes
 * Treat if there's still time
 
---- 
+---
 
 # Regular Expressions
 
-* Strings describing a search pattern
-* Wildcards on steruids
+Strings describing a search pattern
+
+Wildcards on steruids
 
 ---
 
-<!--.python
-    regex = re.compile("^1?$|^(11+?)\\1+$")
-    unary = "1" * int(prime)
-    print "7 is a prime? ", 
-    print True if primes.match(unary) else False
--->
+# Some basics
+
+`abc` literally searches for `abc`
+
+`1+1=2` vs `1\+1=2`
+
+`[]` Denotes a character class. `gr[ae]y` matches both `grey` and `gray`
+
+`^` and `$` are anchors, matching start and end of string respectively
+
+`|` (pipe) is used for alteration. `grey|gray` would also match both
+
+`*` and `+` are used for repetition
+
+`?` means two things; maybe or lazy
+
+`()` are used to capture groups
+
+`\<number>` are backreferences
+
 ---
 
-# Test
+# Examples
+
+File extensions? 
+
+`*.txt` vs `.*\.txt$`
+
+Emails? 
+
+`????` vs `\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b`
+
+---
+
+# Finding primes
+
+How can regex find primes? Regex has no control structure?
+
+Not only is this false, every engine needs some form of structure!
+
+Regex actually has implementations for control structure
+
+---
+
+# Finding primes
+
+How can regex find primes? Regex has no control structure?
+
+Not only is this false, every engine needs some form of structure!
+
+Regex actually has implementations for control structure
+
+
+
+.c
+    def is_regex(number):
+        regex = re.compile("^1?$|^(11+?)\\1+$")
+        unary = "1" * int(number)
+        return True if regex.match(unary) else False
+
+---
+
+# Finding primes
+
+How can regex find primes? Regex has no control structure?
+
+Not only is this false, every engine needs some form of structure!
+
+Regex actually has implementations for control structure
+
+
+
+.c
+    def is_regex(number):
+        regex = re.compile("^1?$|^(11+?)\\1+$")
+        unary = "1" * int(number)
+        return True if regex.match(unary) else False
+
+Regex engine is sequential
+
+Searches until a match is found or all variations are exhausted
+
+---
+
+# Treat
+
+What does this do?
+
+
+
+.c
+    ^(?!(00|30-02))(((?=.+(?!00)([02468](?=[048](00)?$)|[13579](?=[26](00)?$)))|
+    (?!29-02))[012]\d|30|31(?!-(0[2469]|11)))-(0[1-9]|1[012])-\d{4}$
+
+---
+
+# Treat
+
+What does this do?
+
+
+
+.c
+    ^(?!(00|30-02))(((?=.+(?!00)([02468](?=[048](00)?$)|[13579](?=[26](00)?$)))|
+    (?!29-02))[012]\d|30|31(?!-(0[2469]|11)))-(0[1-9]|1[012])-\d{4}$
+
+
+Validates dates in the `dd-mm-yyyy` format
+
+Does it work? How fast is it?
+
+https://gist.github.com/tellnes/3d0392db04d335fcbbfd
+
+---
+
+.middle.center
+# Thanks
+
         </textarea>
         <div id="slideshow"></div>
     </body>

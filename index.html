@@ -46,7 +46,7 @@
 
 Strings describing a search pattern
 
-Wildcards on steruids
+Wildcards on steroids
 
 ---
 
@@ -56,7 +56,7 @@ Wildcards on steruids
 
 `1+1=2` vs `1\+1=2`
 
-`[]` Denotes a character class. `gr[ae]y` matches both `grey` and `gray`
+`[]` denotes a character class. `gr[ae]y` matches both `grey` and `gray`
 
 `^` and `$` are anchors, matching start and end of string respectively
 
@@ -90,7 +90,7 @@ How can regex find primes? Regex has no control structure?
 
 Not only is this false, every engine needs some form of structure!
 
-Regex actually has implementations for control structure
+.. but regex actually has implementations for control structure
 
 ---
 
@@ -108,7 +108,7 @@ Regex actually has implementations for control structure
     def is_regex(number):
         regex = re.compile("^1?$|^(11+?)\\1+$")
         unary = "1" * int(number)
-        return True if regex.match(unary) else False
+        return False if regex.match(unary) else True
 
 ---
 
@@ -191,7 +191,7 @@ Validates dates in the `dd-mm-yyyy` format
 
 Does it work? How fast is it?
 
-https://gist.github.com/tellnes/3d0392db04d335fcbbfd
+[https://gist.github.com/tellnes/3d0392db04d335fcbbfd](https://gist.github.com/tellnes/3d0392db04d335fcbbfd)
 
 ---
 

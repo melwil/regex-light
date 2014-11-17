@@ -100,7 +100,7 @@ How can regex find primes? Regex has no control structure?
 
 Not only is this false, every engine needs some form of structure!
 
-Regex actually has implementations for control structure
+.. but regex actually has implementations for control structure
 
 
 
@@ -118,7 +118,7 @@ How can regex find primes? Regex has no control structure?
 
 Not only is this false, every engine needs some form of structure!
 
-Regex actually has implementations for control structure
+.. but regex actually has implementations for control structure
 
 
 
@@ -126,7 +126,7 @@ Regex actually has implementations for control structure
     def is_regex(number):
         regex = re.compile("^1?$|^(11+?)\\1+$")
         unary = "1" * int(number)
-        return True if regex.match(unary) else False
+        return False if regex.match(unary) else True
 
 Regex engine is sequential
 
